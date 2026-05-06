@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TextilSoft - Gestión de Producción</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- SECCIÓN DE LOGIN -->
+    <div id="login-container" class="auth-wrapper">
+        <form class="auth-form" id="login-form">
+            <h2>TextilSoft</h2>
+            <p>Ingresa al panel de control</p>
+            <input type="text" id="username" placeholder="Usuario" required>
+            <input type="password" id="password" placeholder="Contraseña" required>
+            <button type="submit">Iniciar Sesión</button>
+        </form>
+    </div>
+
+    <!-- PANEL PRINCIPAL (Oculto inicialmente) -->
+    <div id="main-dashboard" class="dashboard-hidden">
+        <nav class="navbar">
+            <h1>TextilSoft Dashboard</h1>
+            <button onclick="logout()" class="logout-btn">Cerrar Sesión</button>
+        </nav>
+
+        <div class="content-container">
+            <!-- Gestión de Materia Prima -->
+            <section class="card">
+                <h3>📦 Inventario de Materia Prima</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Material</th>
+                            <th>Cantidad</th>
+                            <th>Unidad</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody id="raw-materials">
+                        <tr>
+                            <td>Algodón Pima</td>
+                            <td>500</td>
+                            <td>Kg</td>
+                            <td><button class="btn-transform">Transformar</button></td>
+                        </tr>
+                        <tr>
+                            <td>Poliéster</td>
+                            <td>200</td>
+                            <td>Rollos</td>
+                            <td><button class="btn-transform">Transformar</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Gestión de Producción -->
+            <!-- Gestión de Producción -->
+<section class="card">
+    <h3>🧵 Control de Producción</h3>
+    
+    <!-- NUEVO: Formulario para añadir productos -->
+    <div class="add-product-form">
+        <input type="text" id="new-product-name" placeholder="Nombre del producto (ej: Camisa XL)">
+        <button onclick="addProduct()" class="btn-add">Añadir a Producción</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID Orden</th>
+                <th>Producto</th>
+                <th>Estado</th>
+                <th>Cambiar Estado</th>
+            </tr>
+        </thead>
+        <tbody id="production-table">
+            <!-- Los productos aparecerán aquí -->
+            <tr>
+                <td>#101</td>
+                <td>Camisetas Básicas</td>
+                <td><span class="status pendiente">Pendiente</span></td>
+                <td>
+                    <select onchange="updateStatus(this)">
+                        <option value="pendiente" selected>Pendiente</option>
+                        <option value="proceso">En Proceso</option>
+                        <option value="terminado">Terminado</option>
+                    </select>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
